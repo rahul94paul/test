@@ -1,9 +1,6 @@
 version: 2
 jobs:
   build:
-    filters:
-        tags:
-            only: /^v\d+.\d+.\d+$/
     docker:
       # specify the version you desire here
       - image: circleci/node:10.14   
