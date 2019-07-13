@@ -16,7 +16,7 @@ jobs:
     job2:
         docker:
             - image: cibuilds/github:0.10
-          steps:
+        steps:
             - run: 
                 command: |
                     echo Hello World release
