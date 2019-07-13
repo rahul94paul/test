@@ -3,7 +3,9 @@ jobs:
   build:
     filters:
         tags:
-          only: /^v\d+.\d+.\d+$/
+            only: /^v\d+.\d+.\d+$/
+        branches:
+            ignore: /.*/
     docker:
       # specify the version you desire here
       - image: circleci/node:10.14   
@@ -21,7 +23,9 @@ jobs:
         - build
       filters:
         tags:
-          only: /^v\d+.\d+.\d+$/
+            only: /^v\d+.\d+.\d+$/
+        branches:
+            ignore: /.*/
       docker:
         - image: cibuilds/github:0.10
       steps:
