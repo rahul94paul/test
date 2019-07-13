@@ -1,9 +1,9 @@
 version: 2
 jobs:
-  build:
+  job1:
     filters:
-      tags:
-        only: /^v\d+.\d+.\d+$/
+        tags:
+          only: /^v\d+.\d+.\d+$/
     docker:
       # specify the version you desire here
       - image: circleci/node:10.14   
@@ -16,9 +16,9 @@ jobs:
             command: |
                 echo Hello World release
 
-  publish-github-release:
+  job2:
       requires:
-        - build
+        - job1
       filters:
         tags:
           only: /^v\d+.\d+.\d+$/
