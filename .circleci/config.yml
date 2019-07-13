@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  job1:
+  build:
     filters:
         tags:
           only: /^v\d+.\d+.\d+$/
@@ -18,7 +18,7 @@ jobs:
 
   job2:
       requires:
-        - job1
+        - build
       filters:
         tags:
           only: /^v\d+.\d+.\d+$/
