@@ -13,8 +13,8 @@ jobs:
       - run: git submodule sync --recursive
       - run: git submodule update --recursive --init
       - run: 
-        command: |
-            echo Hello World release
+            command: |
+                echo Hello World release
 
   publish-github-release:
       requires:
