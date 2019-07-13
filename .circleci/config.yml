@@ -26,6 +26,12 @@ workflows:
     build_and_test:
         jobs:
             - build
+                filters:
+                    tags:
+                        only: /^v\d+.\d+.\d+$/
             - job2:
                 requires:
                     - build
+                filters:
+                    tags:
+                        only: /^v\d+.\d+.\d+$/
