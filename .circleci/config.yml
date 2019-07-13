@@ -1,2 +1,31 @@
-# Test repo
-## Test 2
+version: 2
+jobs:
+  build:
+    filters:
+      tags:
+        only: /^v\d+.\d+.\d+$/
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.14   
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run: git submodule sync --recursive
+      - run: git submodule update --recursive --init
+      - run: 
+        command: |
+            echo Hello World release
+
+  publish-github-release:
+      requires:
+        - build
+      filters:
+        tags:
+          only: /^v\d+.\d+.\d+$/
+      docker:
+        - image: cibuilds/github:0.10
+      steps:
+        - run: 
+            command: |
+                echo Hello World release
+          
