@@ -11,31 +11,5 @@ jobs:
           - run: git submodule update --recursive --init
           - run: 
                 command: |
-                    echo Hello World build
-
-    job2:
-        docker:
-            - image: cibuilds/github:0.10
-        steps:
-            - run: 
-                command: |
-                    echo Hello World release
-            
-workflows:
-    version: 2
-    build_and_test:
-        jobs:
-            - build:
-                filters:
-                    branches:
-                        ignore: /.*/
-                    tags:
-                        only: /^v\d+.\d+.\d+$/
-            - job2:
-                requires:
-                    - build
-                filters:
-                    branches:
-                        ignore: /.*/
-                    tags:
-                        only: /^v\d+.\d+.\d+$/
+                        sudo apt-get update && sudo apt-get install python-pip libpython-dev
+                        sudo pip install awscli
