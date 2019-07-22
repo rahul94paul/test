@@ -13,3 +13,6 @@ jobs:
                 command: |
                         sudo apt-get update && sudo apt-get install python-pip libpython-dev
                         sudo pip install awscli
+                        aws configure set default.region ap-southeast-2
+                        aws configure set default.output json
+                        
