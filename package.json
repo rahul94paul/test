@@ -1,0 +1,15 @@
+{
+  "name": "nodetest",
+  "version": "1.0.0",
+  "description": "Node project for testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gridthings-api-lib": "git+ssh://git@github.com/ots-m2m/gridthings-api-lib.git",
+    "gridthings-rules-engine": "git+ssh://git@github.com/ots-m2m/gridthings-rules-engine.git"
+  }
+}
