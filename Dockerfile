@@ -4,7 +4,12 @@ ADD . /root
 
 WORKDIR /root
 
-RUN mkdir /root/.ssh && chmod 0700 /root/.ssh && ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+ARG SSH_KEY
+RUN mkdir /root/.ssh/
+RUN echo "$SSH_KEY" > /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 RUN npm install
 
