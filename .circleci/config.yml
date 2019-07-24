@@ -11,6 +11,10 @@ jobs:
                docker_layer_caching: true
           - run: git submodule sync --recursive
           - run: git submodule update --recursive --init
+          - add_ssh_keys
+          - run:
+               name: Keyscan Github (HACK)
+               command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           - run: docker build --rm=false -t rahul/test .
                         
                         
